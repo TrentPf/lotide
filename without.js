@@ -37,7 +37,7 @@ const without = function(source, remove) {
       if (remove[j] === i) { //if remove found in source, set found to true
         found = true;
       }
-      if (found !== true && j === remove.length - 1 && !newArray.includes(i)) { //if haven't found remove in source, I've reached end of remove and I haven't already pushed an equal value
+      if (found !== true && j === remove.length - 1) { //if haven't found remove in source, I've reached end of remove and I haven't already pushed an equal value
         newArray.push(i); //then push the value in source to the new array
       }
       j++;
@@ -51,6 +51,7 @@ console.log(without([1, 2, 3], [1, 2, "3"]));
 console.log(without([3, 2, 1], [1, 2, "3"]));
 console.log(without(["1", "2", "3"], ["1", "2", 3]));
 console.log(without([1, 2, 3], []));
+console.log(without(["1", "2", "3", "1"], ["2", "3"]));
 
 assertArraysEqual(without([1, 2, 3], [2, 3]), [1]);
 assertArraysEqual(without([1, 2, 3], [2, 3]), ["1"]);
