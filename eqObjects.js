@@ -28,20 +28,20 @@ const eqObjects = function(object1, object2) {
   let object1Keys = Object.keys(object1);
   let object2Keys = Object.keys(object2);
 
-  if (object1Keys.length !== object2Keys.length) {
+  if (object1Keys.length !== object2Keys.length) { // If not same amount of keys, return false
     return false;
   }
 
-  for (let key of object1Keys) {
-    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
-      if (!eqArrays(object1[key], object2[key])) {
+  for (let key of object1Keys) { // Loop through keys of one of the arrays
+    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) { // if property is an array in both objects
+      if (!eqArrays(object1[key], object2[key])) { // check if the arrays in both objects are unequal, return false if so
         return false;
       }
-    } else if (object1[key] !== object2[key]) {
+    } else if (object1[key] !== object2[key]) { // if not array properties, then compare objects under assumption they're primitive types, unequal returns false
       return false;
     }
   }
-  return true;
+  return true; // if everything has been passed, arrays are equal, return true
 };
 
 
