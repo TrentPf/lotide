@@ -1,18 +1,24 @@
-const tail = require('../tail.js');
-const assertEqual = require('../assertEqual.js');
+const assert = require('chai').assert;
+const tail = require('../tail');
 
-// TEST CODE
-console.log(tail([5,6,7])); //generic test
-console.log(tail([])); //empty array test
-console.log(tail([5])); //single element array test
+describe("#tail", () => {
+  it("returns [2, 3] for [1, 2, 3]", () => {
+    assert.deepEqual(tail([1, 2, 3]), [2, 3]);
+  });
 
-//Test Case 1: Check returned array elements
-const result = tail(["Hello", "Lighthouse", "Labs"]);
-assertEqual(result.length, 2); //check to see array length is 2 elements after tail function is called
-assertEqual(result[0], "Lighthouse"); //check to see if element 0 is equal
-assertEqual(result[1], "Labs"); //check to see if element 1 is equal
+  it("returns [] for ['5']", () => {
+    assert.deepEqual(tail(['5']), []); 
+  });
 
-//Test Case 2: Check the original array is the same
-const words = ["Hi", "Hello"];
-tail(words); //call tail function with the array
-assertEqual(words.length, 2); // Check to see length is still 2 elements
+  it("returns ['6', '7'] for ['5', '6', '7']", () => {
+    assert.deepEqual(tail(['5', '6', '7']), ['6', '7']); 
+  });
+
+  it("returns ['Lighthouse', 'Labs'] for ['Hello', 'Lighthouse', 'Labs']", () => {
+    assert.deepEqual(tail(['Hello', 'Lighthouse', 'Labs']), ['Lighthouse', 'Labs']); 
+  });
+
+  it("returns [] for []", () => {
+    assert.deepEqual(tail([]), []); 
+  });
+});
