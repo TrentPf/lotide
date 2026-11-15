@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "test:coverage": "nyc --reporter=lcov --reporter=text mocha"
+    "test:coverage": "nyc --all --include='*.js' --exclude='test/**' --reporter=lcov --reporter=text mocha"
   },
   "repository": {
     "type": "git",
