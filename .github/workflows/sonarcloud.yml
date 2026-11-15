@@ -25,7 +25,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Run tests and generate coverage
         run: npm run test:coverage
@@ -34,7 +34,7 @@ jobs:
         run: test -f coverage/lcov.info
 
       - name: Analyze with SonarQube Cloud
-        uses: SonarSource/sonarqube-scan-action@v6
+        uses: SonarSource/sonarqube-scan-action@59202af334b4ba7b5db01b701b8e79f8b3bef0f4 # v8.5.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
