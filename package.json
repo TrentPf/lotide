@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test:coverage": "nyc --reporter=lcov --reporter=text mocha"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/TrentPf/lotide#readme",
   "devDependencies": {
     "chai": "^4.3.4",
-    "mocha": "^9.1.3"
+    "mocha": "^9.1.3",
+    "nyc": "^18.0.0"
   }
 }
