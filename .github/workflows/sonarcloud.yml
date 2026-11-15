@@ -37,3 +37,8 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=TrentPf_lotide
+            -Dsonar.organization=trentpf
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
